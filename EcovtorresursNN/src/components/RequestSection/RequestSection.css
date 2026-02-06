@@ -1,0 +1,76 @@
+/* Основные контейнеры */
+.request-section {
+  padding-block: 100px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../images/formbg.jpg") center center / cover no-repeat;
+}
+.request-form {
+  padding-top: 50px;
+}
+
+.request-field {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 30px 50px;
+  border-radius: 10px;
+  gap: 15px;
+  grid-template-areas: "name phone" "comment comment" "confirm confirm";
+  background-color: #fff;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Текстовый элемент */
+.request-section-text {
+  text-align: center;
+  color: #fff;
+}
+
+/* Поля ввода */
+.request-input {
+  border-radius: 5px;
+  background-color: #f3ecec;
+  border: none;
+  padding: 5px 10px;
+}
+
+.request-textarea {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f3ecec;
+  border: none;
+}
+
+/* Кнопка */
+.confirm-button {
+  grid-area: confirm;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f8f8d9;
+  border: none;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.comment {
+  grid-area: comment;
+}
+
+.name {
+  grid-area: name;
+}

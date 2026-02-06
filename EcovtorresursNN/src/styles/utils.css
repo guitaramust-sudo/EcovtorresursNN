@@ -1,0 +1,22 @@
+/* src/styles/typography.css */
+
+/* h1 — крупный заголовок */
+h1.h1 {
+  font-size: clamp(40px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* h2 — средний заголовок */
+h2.h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* h4 — мелкий подзаголовок */
+h4.h4 {
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 400;
+  line-height: 1.4;
+}
