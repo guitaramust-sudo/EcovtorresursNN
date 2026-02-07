@@ -3,6 +3,8 @@
   flex-direction: column;
   box-sizing: border-box;
   font-family: "Inter";
-  min-width: 100vw;
+  min-width: 98vw;
+  align-items: center;
+  justify-content: center;
   overflow-x: hidden;
 }

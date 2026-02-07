@@ -1,0 +1,234 @@
+/* Основные контейнеры */
+.contacts-section {
+  flex-direction: row;
+  background-color: #faf0e6;
+  gap: 100px;
+  padding-block: 50px;
+  display: flex;
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.contacts-form {
+  flex: 1;
+}
+
+.contacts-field {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Заголовки */
+.contacts-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contacts-adress,
+.contacts-phone,
+.contacts-email {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Поля ввода */
+.contacts-request-input {
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contacts-request-textarea {
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  width: 100%;
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Контейнеры для полей */
+.input-container,
+.email {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-container label,
+.email label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Кнопка */
+.contacts-confirm-button {
+  padding-top: 15px;
+}
+
+.contacts-button {
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Состояния */
+.contacts-request-input:focus,
+.contacts-request-textarea:focus {
+  outline: 2px solid #4d90fe;
+  background-color: #fff;
+}
+
+.contacts-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contacts-button:active {
+  transform: translateY(0);
+}
+
+/* Адаптив для планшетов (1024px) */
+@media (max-width: 1024px) {
+  .contacts-section {
+    gap: 60px;
+    padding-block: 40px;
+    padding-inline: 5%;
+  }
+
+  .contacts-title {
+    font-size: 1.8rem;
+  }
+
+  .contacts-adress,
+  .contacts-phone,
+  .contacts-email {
+    font-size: 1rem;
+  }
+}
+
+/* Адаптив для планшетов (768px) */
+@media (max-width: 768px) {
+  .contacts-section {
+    flex-direction: column;
+    gap: 40px;
+    padding-block: 30px;
+    padding-inline: 20px;
+  }
+
+  .contacts-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contacts-form {
+    width: 100%;
+  }
+
+  .contacts-title {
+    font-size: 1.6rem;
+  }
+
+  .contacts-field {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Адаптив для мобилок (480px) */
+@media (max-width: 480px) {
+  .contacts-section {
+    gap: 30px;
+    padding-block: 25px;
+    padding-inline: 15px;
+  }
+
+  .contacts-info {
+    gap: 15px;
+  }
+
+  .contacts-title {
+    font-size: 1.4rem;
+  }
+
+  .contacts-adress,
+  .contacts-phone,
+  .contacts-email {
+    font-size: 0.95rem;
+  }
+
+  .contacts-request-input {
+    height: 45px;
+    padding: 0 12px;
+    font-size: 16px; /* Фикс для iOS */
+  }
+
+  .contacts-request-textarea {
+    padding: 12px;
+    font-size: 16px; /* Фикс для iOS */
+  }
+
+  .contacts-button {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Адаптив для маленьких экранов (360px) */
+@media (max-width: 360px) {
+  .contacts-section {
+    padding-inline: 12px;
+  }
+
+  .contacts-title {
+    font-size: 1.3rem;
+  }
+
+  .contacts-adress,
+  .contacts-phone,
+  .contacts-email {
+    font-size: 0.9rem;
+  }
+
+  .contacts-request-input {
+    height: 42px;
+  }
+
+  .contacts-button {
+    padding: 12px;
+  }
+}
+
+/* Для больших экранов */
+@media (min-width: 1200px) {
+  .contacts-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contacts-info {
+    max-width: 500px;
+  }
+
+  .contacts-form {
+    max-width: 500px;
+  }
+}

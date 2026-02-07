@@ -4,6 +4,9 @@ import "../../styles/utils.css";
 import "./HomePage.css";
 import CompanyActivities from "../CompanyActivities/CompanyActivities";
 import RequestSection from "../RequestSection/RequestSection";
+import AboutUs from "../AboutUs/AboutUs";
+import WorkExamples from "../WorkExamples/WorkExamples";
+import AcceptingFormSection from "../AcceptingFormSection/AcceptingFormSection";
 const HomePage = () => {
   return (
     <div className="container">
@@ -11,6 +14,9 @@ const HomePage = () => {
       <ActivityAreas />
       <CompanyActivities />
       <RequestSection />
+      <AboutUs />
+      <WorkExamples />
+      <AcceptingFormSection />
     </div>
   );
 };
