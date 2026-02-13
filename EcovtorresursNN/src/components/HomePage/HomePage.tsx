@@ -7,6 +7,7 @@ import RequestSection from "../RequestSection/RequestSection";
 import AboutUs from "../AboutUs/AboutUs";
 import WorkExamples from "../WorkExamples/WorkExamples";
 import AcceptingFormSection from "../AcceptingFormSection/AcceptingFormSection";
+import Footer from "../Footer/Footer";
 const HomePage = () => {
   return (
     <div className="container">
@@ -17,6 +18,7 @@ const HomePage = () => {
       <AboutUs />
       <WorkExamples />
       <AcceptingFormSection />
+      <Footer />
     </div>
   );
 };

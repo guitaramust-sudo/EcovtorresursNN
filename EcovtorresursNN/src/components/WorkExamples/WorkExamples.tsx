@@ -1,6 +1,23 @@
 import "./WorkExamples.css";
 import { useRef, useEffect, useState } from "react";
 
+// Импортируем 15 картинок
+import work1 from "../../images/work-1.jpg";
+import work2 from "../../images/work-2.jpg";
+import work3 from "../../images/work-3.jpg";
+import work4 from "../../images/work-4.jpg";
+import work5 from "../../images/work-5.jpg";
+import work6 from "../../images/work-6.jpg";
+import work7 from "../../images/work-7.jpg";
+import work8 from "../../images/work-8.jpg";
+import work9 from "../../images/work-9.jpg";
+import work10 from "../../images/work-10.jpg";
+import work11 from "../../images/work-11.jpg";
+import work12 from "../../images/work-12.jpg";
+import work13 from "../../images/work-13.jpg";
+import work14 from "../../images/work-14.jpg";
+import work15 from "../../images/work-15.jpg";
+
 const BaseSlider = ({
   children,
   title,
@@ -68,33 +85,37 @@ const BaseSlider = ({
 };
 
 const PhotoSlider = () => {
+  // Массив с импортированными картинками
+  const workImages = [
+    work1,
+    work2,
+    work3,
+    work4,
+    work5,
+    work6,
+    work7,
+    work8,
+    work9,
+    work10,
+    work11,
+    work12,
+    work13,
+    work14,
+    work15,
+  ];
+
   return (
     <BaseSlider title="Фотографии работ">
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 1" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 2" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 3" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 4" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 5" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 6" />
-      </div>
-      <div className="examples-photo-slider-element">
-        <img src="" alt="Фото работы 7" />
-      </div>
+      {workImages.map((image, index) => (
+        <div className="examples-photo-slider-element" key={index}>
+          <img src={image} alt={`Фото работы ${index + 1}`} />
+        </div>
+      ))}
     </BaseSlider>
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VideoSlider = () => {
   return (
     <BaseSlider title="Видео работ">
@@ -143,11 +164,9 @@ const WorkExamples = () => {
     <section className="container work-examles">
       <h2 className="h2 work-examples-title">Примеры выполняемых работ:</h2>
 
-      {/* Фото слайдер */}
+      {/* Фото слайдер с 15 картинками */}
       <PhotoSlider />
 
-      {/* Видео слайдер */}
-      <VideoSlider />
       <h3 className="work-examples-footer">
         С 2017 года можно с уверенностью сказать, что ООО «Эковторресурс»
         является стабильной компанией.{" "}

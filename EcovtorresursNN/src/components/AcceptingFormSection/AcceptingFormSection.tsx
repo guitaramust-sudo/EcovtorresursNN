@@ -1,6 +1,47 @@
+import { useState } from "react";
 import "./AcceptingFormSection.css";
 
 const AcceptingFormSection = () => {
+  const [isFormSent, setIsFormSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      const response = await fetch("http://localhost:5000/send-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Успех:", result);
+        setIsFormSent(true);
+        form.reset();
+      }
+    } catch (error) {
+      console.error("Ошибка:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = () => {
+    if (isFormSent) {
+      setIsFormSent(false);
+    }
+  };
+
   return (
     <section className="container contacts-section">
       <div className="contacts-info">
@@ -18,7 +59,14 @@ const AcceptingFormSection = () => {
           <span className="strong-text">Email:</span> ecovtorresurs@bk.ru
         </h5>
       </div>
-      <form action="" className="contacts-form">
+
+      <form
+        action="#"
+        method="post"
+        className="contacts-form"
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+      >
         <fieldset className="contacts-field">
           <div className="input-container name">
             <label htmlFor="name">Имя:</label>
@@ -35,7 +83,7 @@ const AcceptingFormSection = () => {
           </div>
 
           <div className="input-container email">
-            <label htmlFor="comment">Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
               className="contacts-request-input"
               id="email"
@@ -74,11 +122,18 @@ const AcceptingFormSection = () => {
           </div>
 
           <div className="contacts-confirm-button">
-            <button type="submit" className="contacts-button">
+            <button
+              type="submit"
+              className="contacts-button"
+              disabled={isSubmitting}
+            >
               Отправить
             </button>
           </div>
         </fieldset>
+        {isFormSent && (
+          <div className="success-message">Форма успешно отправлена!</div>
+        )}
       </form>
     </section>
   );

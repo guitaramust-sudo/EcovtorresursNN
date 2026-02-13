@@ -24,7 +24,6 @@
   gap: 20px;
 }
 
-/* Заголовки */
 .contacts-title {
   font-size: 2rem;
   margin-bottom: 10px;
@@ -231,4 +230,8 @@
   .contacts-form {
     max-width: 500px;
   }
+}
+
+.success-message {
+  padding-block: 2rem;
 }

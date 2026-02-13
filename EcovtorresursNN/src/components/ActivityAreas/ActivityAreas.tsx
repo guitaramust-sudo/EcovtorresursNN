@@ -1,5 +1,8 @@
 import "./ActivityAreas.css";
 import activity1 from "../../images/activity-1.jpg";
+import activity2 from "../../images/activity-2.jpg";
+
+import activity3 from "../../images/activity-3.jpg";
 
 const ActivityAreas = () => {
   return (
@@ -16,13 +19,13 @@ const ActivityAreas = () => {
           </h2>
         </div>
         <div className="activity-card">
-          <img src={activity1} alt="" className="activity-bg" />
+          <img src={activity2} alt="" className="activity-bg" />
           <h2 className="activity-info h2">
             Монтаж любых строительных конструкций.
           </h2>
         </div>
         <div className="activity-card">
-          <img src={activity1} alt="" className="activity-bg" />
+          <img src={activity3} alt="" className="activity-bg" />
           <h2 className="activity-info h2">Строительный контроль объектов.</h2>
         </div>
       </div>
