@@ -45,7 +45,9 @@ const AcceptingFormSection = () => {
   return (
     <section className="container contacts-section">
       <div className="contacts-info">
-        <h2 className="contacts-title h2">Контакты</h2>
+        <h2 className="contacts-title h2" id="contacts">
+          Контакты
+        </h2>
         <h5 className="contacts-adress">
           <span className="strong-text">Адрес:</span> Нижний Новгород, ул. В.
           Революции, д. 28, помещение 2

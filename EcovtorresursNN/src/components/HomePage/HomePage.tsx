@@ -8,9 +8,11 @@ import AboutUs from "../AboutUs/AboutUs";
 import WorkExamples from "../WorkExamples/WorkExamples";
 import AcceptingFormSection from "../AcceptingFormSection/AcceptingFormSection";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 const HomePage = () => {
   return (
     <div className="container">
+      <Header />
       <Hero />
       <ActivityAreas />
       <CompanyActivities />

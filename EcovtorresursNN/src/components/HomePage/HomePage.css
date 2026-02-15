@@ -8,3 +8,9 @@
   justify-content: center;
   overflow-x: hidden;
 }
+
+#about,
+#projects,
+#contacts {
+  scroll-margin-top: 300px;
+}

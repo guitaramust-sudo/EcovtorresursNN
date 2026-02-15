@@ -67,7 +67,7 @@ const BaseSlider = ({
   };
 
   return (
-    <div className="slider-wrapper">
+    <div className="slider-wrapper" id="projects">
       {title && <h3 className="slider-title">{title}</h3>}
       <div className="examples-photo-slider">
         <div className="left-arrow arrow" onClick={handleLeftArrow}>

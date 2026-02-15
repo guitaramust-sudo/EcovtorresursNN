@@ -6,7 +6,9 @@ import AboutUsImg2 from "../../images/about-us-2.jpg";
 const AboutUs = () => {
   return (
     <section className="about-us container">
-      <h2 className="about-us-title h2">О компании</h2>
+      <h2 className="about-us-title h2" id="about">
+        О компании
+      </h2>
       <div className="about-us-grid">
         <div className="about-us-info">
           <span>

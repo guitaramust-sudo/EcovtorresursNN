@@ -7,7 +7,7 @@ import activity3 from "../../images/activity-3.jpg";
 const ActivityAreas = () => {
   return (
     <section className="activity-areas container">
-      <h2 className="activity-areas-title h2">
+      <h2 className="activity-areas-title h2" id="services">
         Основные направлениями деятельности компании ООО «Эковторресурс»
         являются:
       </h2>
