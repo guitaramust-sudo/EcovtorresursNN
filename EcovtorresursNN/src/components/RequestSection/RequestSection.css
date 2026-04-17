@@ -87,7 +87,7 @@
 
   .request-field {
     grid-template-columns: 1fr;
-    padding: 20px 30px;
+    padding: 20px 60px;
     grid-template-areas:
       "name"
       "phone"
