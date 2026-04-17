@@ -7,6 +7,13 @@
   display: flex;
 }
 
+.request-input,
+.request-textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .contacts-info {
   display: flex;
   flex-direction: column;
