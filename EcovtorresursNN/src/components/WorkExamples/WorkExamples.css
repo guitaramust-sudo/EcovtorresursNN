@@ -132,7 +132,8 @@
 /* Совсем мелкие: ещё сильнее уменьшаем карточку */
 @media (max-width: 480px) {
   .examples-photo-slider {
-    padding-inline: 10px;
+    padding-inline: 5px; /* Минимальный отступ, чтобы не тратить место */
+    gap: 10px;
   }
 
   .arrow {
@@ -142,7 +143,15 @@
   }
 
   .examples-photo-container {
-    padding-inline: 10vw; /* Сжимаем карточку к центру, чтобы она стала "меньше" */
+    width: 75vw;
+    justify-content: center;
+  }
+
+  .examples-photo-slider-element {
+    flex: 0 0 75%;
+
+    /* Сохраняем квадрат или подгоняем высоту под новую ширину */
+    aspect-ratio: 1 / 1;
   }
 }
 
