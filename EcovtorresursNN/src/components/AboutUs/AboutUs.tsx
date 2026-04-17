@@ -15,7 +15,7 @@ const AboutUs = () => {
             <p>
               <span className="strong-text">Строительная компания</span> ООО
               «Эковторресурс»{" "}
-              <span className="strong-text">уже более 7 лет</span> на рынке (с
+              <span className="strong-text">уже более 9 лет</span> на рынке (с
               2017 года) успешно выполняет{" "}
               <span className="strong-text">полный комплекс</span>
               ремонтно-строительных и монтажных работ в городе Нижнем Новгороде
@@ -71,7 +71,7 @@ const AboutUs = () => {
           </div>
           <div className="about-us-card">
             <h5 className="about-us-director-name">
-              Агапов Виталий Анатольевич{" "}
+              Багаев Иван Владимирович{" "}
             </h5>
             <div className="about-us-info">
               <span>Генеральный директор</span>
