@@ -144,3 +144,44 @@
     justify-content: stretch;
   }
 }
+
+/* Обработка для очень маленьких экранов (XS) */
+@media (max-width: 360px) {
+  .request-section {
+    padding-block: 30px 20px;
+    padding-inline: 10px; /* Еще меньше отступы по бокам */
+  }
+
+  .request-field {
+    padding: 15px 15px; /* Минимизируем внутренние отступы формы */
+    gap: 12px;
+  }
+
+  .request-section-text {
+    font-size: 1.1rem; /* Уменьшаем заголовок, чтобы не переносился по одному слову */
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  /* Поля ввода */
+  .request-input,
+  .request-textarea {
+    font-size: 14px; /* Чуть меньше шрифт, чтобы текст не обрезался */
+    padding: 10px;
+  }
+
+  .request-textarea {
+    min-height: 100px; /* Уменьшаем высоту, чтобы форма не занимала два экрана */
+  }
+
+  /* Кнопка */
+  .button {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+
+  .input-container label {
+    font-size: 0.85rem; /* Уменьшаем подписи к полям, если они есть */
+  }
+}
