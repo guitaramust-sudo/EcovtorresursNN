@@ -1,302 +1,155 @@
-/* Основные контейнеры */
+/* База секции */
 .work-examles {
   background-color: #faf0e6;
-  padding-block: 50px;
+  padding-block: clamp(30px, 5vw, 60px);
+  width: 100%;
   overflow: hidden;
 }
 
-/* Заголовок */
-.work-examples-title {
-  text-align: center;
-  margin-bottom: 40px;
+.work-examles * {
+  box-sizing: border-box;
 }
 
-/* Слайдер */
+/* Заголовок и Футер */
+.work-examples-title,
+.work-examples-footer {
+  text-align: center;
+  width: 100%;
+  padding-inline: 20px;
+  max-width: 1200px;
+  margin-inline: auto;
+  word-wrap: break-word;
+}
+
+.work-examples-title {
+  margin-bottom: clamp(20px, 5vw, 40px);
+}
+
+.work-examples-title h2 {
+  font-size: clamp(1.2rem, 6vw, 2rem);
+  margin: 0;
+}
+
+/* СЛАЙДЕР: Основная логика Flex */
 .examples-photo-slider {
   display: flex;
-  align-items: center;
+  align-items: center; /* Центрируем стрелки по вертикали */
   justify-content: center;
-  position: relative;
-  max-width: 1400px;
+  gap: 15px; /* Расстояние между стрелкой и окном слайдера */
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 70px;
+  padding-inline: 20px;
 }
 
+/* Контейнер элементов (Окно видимости) */
 .examples-photo-container {
   display: flex;
   gap: 30px;
-  overflow-x: hidden;
+  overflow: hidden;
   scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  width: 100%;
-  max-width: 1260px; /* Ровно 3 картинки: 400px * 3 + 30px * 2 */
+  flex: 1; /* Забирает всё пространство между стрелками */
+  padding-block: 10px;
 }
 
+/* Элемент слайдера (Карточка) */
 .examples-photo-slider-element {
-  flex: 0 0 auto;
+  /* Считаем: (100% ширины контейнера - 2 гэпа по 30px) / 3 элемента */
+  flex: 0 0 calc((100% - 60px) / 3);
+  aspect-ratio: 1 / 1;
   border: 1px solid #ccc;
-  height: 400px;
-  width: 400px;
   border-radius: 8px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  background-color: #000;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Изображения */
 .examples-photo-slider-element img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
 }
 
-/* Стрелки */
+/* СТРЕЛКИ: Теперь они просто кнопки в ряду */
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.95);
+  flex: 0 0 clamp(40px, 5vw, 50px); /* Фиксированный размер */
+  height: clamp(40px, 5vw, 50px);
+  background-color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   cursor: pointer;
-  user-select: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border: none;
+  font-size: 20px;
+  z-index: 2;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.left-arrow {
-  left: 10px;
-}
-
-.right-arrow {
-  right: 10px;
-}
-
-/* Состояния */
-.left-arrow:hover,
-.right-arrow:hover {
+.arrow:hover {
   background-color: #fff;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
 }
 
-.examples-photo-slider-element:hover {
-  border-color: #000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
+/* --- АДАПТИВ --- */
 
-.examples-photo-slider-element:hover img {
-  transform: scale(1.05);
-}
-
-/* Градиенты по краям */
-.examples-photo-container::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(to left, #faf0e6, transparent);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.examples-photo-container::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(to right, #faf0e6, transparent);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Адаптив для планшетов (1024px) */
-@media (max-width: 1440px) {
-  .examples-photo-slider {
-    padding: 0 48px;
-  }
-
+/* Планшеты: 2 фото */
+@media (max-width: 1100px) {
   .examples-photo-container {
     gap: 20px;
-    max-width: 680px;
   }
-
   .examples-photo-slider-element {
-    height: 320px;
-    width: 320px;
-  }
-
-  .arrow {
-    width: 35px;
-    height: 35px;
-    font-size: 22px;
+    flex: 0 0 calc((100% - 20px) / 2);
   }
 }
 
+/* Мобилки: 1 фото + уменьшение размера */
 @media (max-width: 768px) {
   .work-examles {
-    padding-block: 40px;
+    padding-block: 30px;
   }
 
   .examples-photo-slider {
-    gap: 30px;
+    gap: 10px;
+    padding-inline: 15px;
   }
 
+  /* Чтобы картинка была поменьше и не конская, увеличиваем боковые отступы у слайдера */
   .examples-photo-container {
-    gap: 20px;
-    max-width: 340px;
-    padding: 0 20px;
-    scroll-snap-type: x mandatory;
+    padding-inline: 5vw;
   }
 
   .examples-photo-slider-element {
-    height: 300px;
-    width: 300px;
-    scroll-snap-align: center;
-    flex: 0 0 300px;
-    margin: 0 auto;
-  }
-
-  .arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  @media (max-width: 480px) {
-    .arrow {
-      width: 35px;
-      height: 35px;
-      font-size: 18px;
-    }
-
-    .left-arrow {
-      left: 5px;
-    }
-
-    .right-arrow {
-      right: 5px;
-    }
-  }
-
-  .examples-photo-container::before,
-  .examples-photo-container::after {
-    display: none;
+    flex: 0 0 100%; /* Одно фото в окне */
   }
 }
 
-/* Для очень маленьких экранов (360px) */
-@media (max-width: 360px) {
+/* Совсем мелкие: ещё сильнее уменьшаем карточку */
+@media (max-width: 480px) {
   .examples-photo-slider {
-    padding: 0 15px;
-  }
-
-  .examples-photo-container {
-    max-width: 300px;
-    padding: 0 10px;
-  }
-
-  .examples-photo-slider-element {
-    height: 280px;
-    width: 280px;
-    flex: 0 0 280px;
+    padding-inline: 10px;
   }
 
   .arrow {
-    width: 30px;
-    height: 30px;
+    flex: 0 0 35px;
+    height: 35px;
     font-size: 16px;
   }
-}
 
-/* Отключение стрелок при отсутствии скролла */
-.arrow.disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* Общие стили для всех типов слайдеров */
-.slider-wrapper {
-  margin-bottom: 60px;
-}
-
-.slider-wrapper:last-child {
-  margin-bottom: 0;
-}
-
-.slider-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-/* Стили для видео элементов */
-.examples-video-slider-element {
-  flex: 0 0 auto;
-  border: 1px solid #ccc;
-  height: 400px;
-  width: 400px;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.examples-video-slider-element video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: #000;
-}
-
-.examples-video-slider-element:hover {
-  border-color: #000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
-
-/* Адаптив для видео */
-@media (max-width: 1400px) {
-  .examples-video-slider-element {
-    height: 320px;
-    width: 320px;
+  .examples-photo-container {
+    padding-inline: 10vw; /* Сжимаем карточку к центру, чтобы она стала "меньше" */
   }
 }
 
-@media (max-width: 768px) {
-  .examples-video-slider-element {
-    height: 300px;
-    width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .examples-video-slider-element {
-    height: 250px;
-    width: 250px;
-  }
-}
-
-@media (max-width: 360px) {
-  .examples-video-slider-element {
-    height: 220px;
-    width: 220px;
-  }
-}
-
+/* Подпись */
 .work-examples-footer {
-  text-align: center;
+  margin-top: 30px;
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  line-height: 1.4;
+  color: #333;
 }

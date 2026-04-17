@@ -1,16 +1,38 @@
+/* Общий контейнер (App или Main) */
 .container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  font-family: "Inter";
-  min-width: 98vw;
+  font-family: "Inter", sans-serif;
+  width: 100%; /* Заменяем кривые 98vw на честные 100% */
+  max-width: 100%;
   align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
+  /* Убираем overflow-x: hidden отсюда, если он есть на body */
 }
 
+/* ФИКС ЯКОРЕЙ: Теперь при переходе заголовок не будет под хедером */
 #about,
+#services,
 #projects,
 #contacts {
-  scroll-margin-top: 300px;
+  /* Значение должно быть равно высоте твоего хедера + 20-30px запаса */
+  scroll-margin-top: 90px;
+}
+
+/* АДАПТИВ ДЛЯ СЕКЦИЙ */
+@media (max-width: 768px) {
+  #about,
+  #services,
+  #projects,
+  #contacts {
+    /* На мобилках хедер обычно чуть ниже/выше, подгоняем */
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Общие стили для всех секций внутри контейнера */
+section {
+  width: 100%;
+  padding-inline: 20px;
+  box-sizing: border-box;
 }

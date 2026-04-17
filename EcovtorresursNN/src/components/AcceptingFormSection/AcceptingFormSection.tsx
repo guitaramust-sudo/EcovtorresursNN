@@ -43,7 +43,7 @@ const AcceptingFormSection = () => {
   };
 
   return (
-    <section className="container contacts-section">
+    <section className="contacts-section container">
       <div className="contacts-info">
         <h2 className="contacts-title h2" id="contacts">
           Контакты

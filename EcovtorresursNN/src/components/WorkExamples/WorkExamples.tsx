@@ -1,7 +1,7 @@
 import "./WorkExamples.css";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
-// Импортируем 15 картинок
+// Импорты картинок (без изменений)
 import work1 from "../../images/work-1.jpg";
 import work2 from "../../images/work-2.jpg";
 import work3 from "../../images/work-3.jpg";
@@ -26,66 +26,43 @@ const BaseSlider = ({
   title?: string;
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [scrollStep, setScrollStep] = useState(430);
 
-  useEffect(() => {
-    const updateScrollStep = () => {
-      if (!sliderRef.current) return;
+  const scroll = (direction: "left" | "right") => {
+    const container = sliderRef.current;
+    if (container && container.children.length > 0) {
+      const item = container.children[0] as HTMLElement;
+      const itemWidth = item.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(container).gap) || 0;
 
-      const firstElement = sliderRef.current.children[0] as HTMLElement;
-      if (firstElement) {
-        const elementWidth = firstElement.offsetWidth;
-        const containerStyle = getComputedStyle(sliderRef.current);
-        const gapValue = containerStyle.gap;
-        const gap = parseInt(gapValue) || 30;
-        const step = elementWidth + gap;
-        setScrollStep(step);
-      }
-    };
+      // Шаг скролла = ширина одной карточки + расстояние между ними
+      const scrollAmount = itemWidth + gap;
 
-    updateScrollStep();
-    window.addEventListener("resize", updateScrollStep);
-    return () => window.removeEventListener("resize", updateScrollStep);
-  }, []);
-
-  const handleRightArrow = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: scrollStep,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleLeftArrow = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({
-        left: -scrollStep,
+      container.scrollBy({
+        left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <div className="slider-wrapper" id="projects">
+    <div className="slider-wrapper">
       {title && <h3 className="slider-title">{title}</h3>}
       <div className="examples-photo-slider">
-        <div className="left-arrow arrow" onClick={handleLeftArrow}>
+        <button className="left-arrow arrow" onClick={() => scroll("left")}>
           ←
-        </div>
+        </button>
         <div className="examples-photo-container" ref={sliderRef}>
           {children}
         </div>
-        <div className="right-arrow arrow" onClick={handleRightArrow}>
+        <button className="right-arrow arrow" onClick={() => scroll("right")}>
           →
-        </div>
+        </button>
       </div>
     </div>
   );
 };
 
 const PhotoSlider = () => {
-  // Массив с импортированными картинками
   const workImages = [
     work1,
     work2,
@@ -105,71 +82,31 @@ const PhotoSlider = () => {
   ];
 
   return (
-    <BaseSlider title="Фотографии работ">
+    <BaseSlider title="">
       {workImages.map((image, index) => (
         <div className="examples-photo-slider-element" key={index}>
-          <img src={image} alt={`Фото работы ${index + 1}`} />
+          <img src={image} alt={`Фото работы ${index + 1}`} loading="lazy" />
         </div>
       ))}
     </BaseSlider>
   );
 };
 
-// const VideoSlider = () => {
-//   return (
-//     <BaseSlider title="Видео работ">
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//       <div className="examples-video-slider-element">
-//         <video controls>
-//           <source src="" type="video/mp4" />
-//           Ваш браузер не поддерживает видео.
-//         </video>
-//       </div>
-//     </BaseSlider>
-//   );
-// };
-
 const WorkExamples = () => {
   return (
-    <section className="container work-examles">
-      <h2 className="h2 work-examples-title">Примеры выполняемых работ:</h2>
+    <section className="work-examles">
+      <div className="container">
+        <h2 className="work-examples-title" id="projects">
+          Примеры выполняемых работ:
+        </h2>
 
-      {/* Фото слайдер с 15 картинками */}
-      <PhotoSlider />
+        <PhotoSlider />
 
-      <h3 className="work-examples-footer">
-        С 2017 года можно с уверенностью сказать, что ООО «Эковторресурс»
-        является стабильной компанией.{" "}
-      </h3>
+        <h3 className="work-examples-footer">
+          С 2017 года можно с уверенностью сказать, что ООО «Эковторресурс»
+          является стабильной компанией.
+        </h3>
+      </div>
     </section>
   );
 };
