@@ -115,49 +115,48 @@ const PhotoSlider = () => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const VideoSlider = () => {
-  return (
-    <BaseSlider title="Видео работ">
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-      <div className="examples-video-slider-element">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-    </BaseSlider>
-  );
-};
+// const VideoSlider = () => {
+//   return (
+//     <BaseSlider title="Видео работ">
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//       <div className="examples-video-slider-element">
+//         <video controls>
+//           <source src="" type="video/mp4" />
+//           Ваш браузер не поддерживает видео.
+//         </video>
+//       </div>
+//     </BaseSlider>
+//   );
+// };
 
 const WorkExamples = () => {
   return (
