@@ -1,6 +1,5 @@
 import "./Header.css";
 import { useState, useEffect } from "react";
-import logo from "../../images/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,13 +39,6 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? "header-scrolled" : ""}`}>
       <div className="header-container">
-        {/* Логотип */}
-        <div className="logo">
-          <a href="/">
-            <img width="80" height="80" src={logo} />
-          </a>
-        </div>
-
         {/* Бургер-кнопка */}
         <button
           className={`burger-menu ${isMenuOpen ? "open" : ""}`}
