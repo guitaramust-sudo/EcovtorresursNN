@@ -34,8 +34,8 @@ const Footer = () => {
           <div className="footer-col">
             <h3 className="footer-title">Контакты</h3>
             <p className="footer-text">Директор: Багаев Иван Владимирович</p>
-            <a href="tel:+79200396398" className="footer-link">
-              Телефон: 8 (920) 039-63-98
+            <a href="tel:+7 952 475 7515" className="footer-link">
+              Телефон: 8 (952) 475 7515
             </a>
           </div>
 

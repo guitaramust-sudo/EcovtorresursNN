@@ -53,12 +53,12 @@ const AcceptingFormSection = () => {
           Революции, д. 28, помещение 2
         </h5>
         <h5 className="contacts-phone">
-          <span className="strong-text">Телефон:</span> 8 (930) 804-44-48
+          <span className="strong-text">Телефон:</span> 8 (952) 475 7515
           <br />
-          Генеральный директор Агапов Виталий Анатольевич
+          Генеральный директор Багаев Иван Владимирович
         </h5>
         <h5 className="contacts-email">
-          <span className="strong-text">Email:</span> ecovtorresurs@bk.ru
+          <span className="strong-text">Email:</span> ekovtorresurs@ekores.ru
         </h5>
       </div>
 
