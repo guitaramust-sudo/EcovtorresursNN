@@ -66,17 +66,6 @@
   position: relative;
 }
 
-.about-us-card::before {
-  content: "";
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  left: 0;
-  background: url("../../images/director-photo.jpg") center center / cover
-    no-repeat;
-  border-radius: 50%;
-}
-
 /* Адаптив для планшетов (1024px и меньше) */
 @media (max-width: 1024px) {
   .about-us {

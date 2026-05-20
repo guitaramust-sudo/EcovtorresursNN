@@ -69,14 +69,6 @@ const AboutUs = () => {
               существование компании.
             </span>
           </div>
-          <div className="about-us-card">
-            <h5 className="about-us-director-name">
-              Багаев Иван Владимирович{" "}
-            </h5>
-            <div className="about-us-info">
-              <span>Генеральный директор</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

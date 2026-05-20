@@ -55,7 +55,7 @@ const AcceptingFormSection = () => {
         <h5 className="contacts-phone">
           <span className="strong-text">Телефон:</span> 8 (952) 475 7515
           <br />
-          Генеральный директор Багаев Иван Владимирович
+          Директор Багаев Иван Владимирович
         </h5>
         <h5 className="contacts-email">
           <span className="strong-text">Email:</span> ekovtorresurs@ekores.ru
