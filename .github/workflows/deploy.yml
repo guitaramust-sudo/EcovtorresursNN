@@ -13,7 +13,7 @@ permissions:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    environment: # <-- ДОБАВЬТЕ ЭТУ СЕКЦИЮ
+    environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
@@ -35,13 +35,20 @@ jobs:
         run: npm run build
         working-directory: EcovtorresursNN
 
+      - name: Move files to root # <-- НОВЫЙ ШАГ
+        run: |
+          mkdir -p public
+          cp -r EcovtorresursNN/dist/* public/
+          # Если нужен index.html в корне
+          cp EcovtorresursNN/dist/index.html ./ || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "EcovtorresursNN/dist"
+          path: "public" # <-- ИЗМЕНЕНО
 
       - name: Deploy to GitHub Pages
         id: deployment
