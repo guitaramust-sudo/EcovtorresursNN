@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  # Наш бэкенд (твоя почтовая ракета)
+  backend:
+    build: ./backend
+    container_name: ecovtor-backend
+    ports:
+      - "5000:5000"
+    restart: always
+
+  # Наш фронтенд (Реакт + Nginx)
+  frontend:
+    build: ./frontend
+    container_name: ecovtor-frontend
+    ports:
+      - "80:80" # Сайт будет доступен просто по IP сервера или домену
+    restart: always
+    depends_on:
+      - backend
